@@ -1,0 +1,23 @@
+<!-- meseros/templates/meseros/crear_mesero.html -->
+{% extends 'base.html' %}
+
+{% block title %}Crear Mesero{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Crear Nuevo Mesero</h2>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Formulario de Creación</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Muestra el formulario con los campos de manera estética -->
+                <button type="submit" class="btn btn-success">Guardar Mesero</button>
+                <a href="{% url 'listar_meseros' %}" class="btn btn-secondary">Volver a la lista</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

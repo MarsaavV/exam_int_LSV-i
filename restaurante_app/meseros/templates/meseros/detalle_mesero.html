@@ -1,0 +1,34 @@
+<!-- meseros/templates/meseros/detalle_mesero.html -->
+{% extends 'base.html' %}
+
+{% block title %}Detalles del Mesero{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Detalles del Mesero</h2>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Información del Mesero</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <td>{{ mesero.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Edad</th>
+                        <td>{{ mesero.edad }}</td>
+                    </tr>
+                    <tr>
+                        <th>Procedencia</th>
+                        <td>{{ mesero.procedencia }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{% url 'listar_meseros' %}" class="btn btn-primary">Volver a la lista de meseros</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!-- meseros/templates/meseros/listar_meseros_peru.html -->
+{% extends 'base.html' %}
+
+{% block title %}Meseros de Perú{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Meseros de Perú</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Procedencia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mesero in meseros %}
+                {% if mesero.procedencia == "Perú" %}
+                    <tr>
+                        <td>{{ mesero.id }}</td>
+                        <td>{{ mesero.nombre }}</td>
+                        <td>{{ mesero.edad }}</td>
+                        <td>{{ mesero.procedencia }}</td>
+                        <td>
+                            <a href="{% url 'editar_mesero' pk=mesero.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'eliminar_mesero' pk=mesero.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'listar_meseros' %}" class="btn btn-primary">Volver a la lista completa</a>
+</div>
+{% endblock %}
